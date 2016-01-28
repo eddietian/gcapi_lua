@@ -8,4 +8,4 @@ local resource = {
 	"/home/www/gcapi_lua/modules/?.lua",
 	package.path
 };
-package.path = table.concat(libpath,";");
+package.path = table.concat(resource,";");
