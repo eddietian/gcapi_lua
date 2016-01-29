@@ -12,3 +12,7 @@ end
 function getUri()
 	return ngx.var.uri
 end
+
+function getRoute()
+	return require "routeinc"
+end

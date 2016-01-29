@@ -3,7 +3,8 @@ Fun = require "funinc"
 
 local init = require "init"
 local var = init.run()
-ngx.say(var)
+ngx.say(var[1]["reg"])
+
 
 
 

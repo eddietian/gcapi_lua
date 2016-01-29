@@ -2,5 +2,7 @@ module (..., package.seeall)
 
 function run()
     local uri = Fun.getUri()
-    return uri
+    --匹配正则route
+    local route = Fun.getRoute()
+    return route;
 end
