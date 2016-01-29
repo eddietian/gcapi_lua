@@ -1,4 +1,6 @@
-st=$(ls api_log_25)
+#!/bin/sh
+cd /data1/wwwroot/hiyoulog/
+filelist=$(ls api_log_25)
 #echo "hello"
 for file in $filelist
 do
