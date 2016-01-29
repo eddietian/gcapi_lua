@@ -8,3 +8,7 @@ function getParams()
     --local args = ngx.req.get_post_args()
     return args
 end
+
+function getUri()
+	return ngx.var.uri
+end

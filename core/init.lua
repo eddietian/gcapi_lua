@@ -1,5 +1,6 @@
 module (..., package.seeall)
 
 function run()
-    return "ok"
+    local uri = Fun.getUri()
+    return uri
 end
