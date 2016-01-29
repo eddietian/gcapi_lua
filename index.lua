@@ -1,12 +1,17 @@
 require "configinc"
-fun = require "funinc"
+Fun = require "funinc"
 
 local init = require "init"
-init.run()
-fun.getParams()
+local var = init.run()
+ngx.say(var)
 
-local  args = fun.getParams()
 
-for k, v in pairs(args) do
-	ngx.say(k,v)
-end
+
+--Fun.getParams()
+
+
+--local  args = Fun.getParams()
+
+--for k, v in pairs(args) do
+--	ngx.say(k,v)
+--end
