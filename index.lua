@@ -1,10 +1,15 @@
 require "configinc"
 Fun = require "funinc"
+Route = require "routeinc"
 
 local init = require "init"
 local var = init.run()
-ngx.say(var[1]["reg"])
-
+for k, v in pairs(var) do
+      ngx.say(k,v)
+end
+--
+--ngx.say(Route.conf[2]["reg"])
+--ngx.say(ngx.var.request_uri)
 
 
 

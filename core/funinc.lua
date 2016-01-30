@@ -10,7 +10,7 @@ function getParams()
 end
 
 function getUri()
-	return ngx.var.uri
+	return ngx.var.request_uri
 end
 
 function getRoute()
