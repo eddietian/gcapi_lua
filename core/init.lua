@@ -1,5 +1,7 @@
 module (..., package.seeall)
 
+--local Response = require("core.response")
+
 function run()
     local uri = Fun.getUri()
     --匹配正则route
@@ -7,10 +9,15 @@ function run()
     for k,v in pairs(Route.conf) do	    
         local args = {}
         args = string.gmatch(uri,v["reg"])
-        for k in args do
-            route[v['controller']] = v['method']
+        for g in args do
+           -- route[v['controller']] = v['method']
+           local control =  require (v["controller"].."Controller")
+           local method = control[v['method']]
+           local call_ok,err_info = pcall(method)
+           ngx.say(call_ok)
             break
         end    
     end
-    return route
+    --ngx.ctx.response = Response:new()
+    --return route
 end

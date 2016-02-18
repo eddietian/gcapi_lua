@@ -4,9 +4,11 @@ Route = require "routeinc"
 
 local init = require "init"
 local var = init.run()
-for k, v in pairs(var) do
-      ngx.say(k,v)
-end
+--for k, v in pairs(var) do
+--      ngx.say(k,v)
+--end
+ngx.say('gb5')
+ngx.log(ngx.ERR, "err err err")
 --
 --ngx.say(Route.conf[2]["reg"])
 --ngx.say(ngx.var.request_uri)
