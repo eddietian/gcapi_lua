@@ -1,6 +1,7 @@
-local Response = Class("core.Response")
+local Response = {}
 
-function Response:init()
-    ngx.log(ngx.DEBUG, "[Response:init] start.")
-    self._output = {}
+function Response:write(rs)
+    self.output = rs
 end
+
+return Response

@@ -1,0 +1,13 @@
+local _class = function()
+    local cls = {}
+    cls.new = function(self, ...)
+        local instance = {}
+        setmetatable(instance, self)
+        return instance
+    end
+    cls.__index = cls
+    return cls
+end
+
+local class = {}
+return setmetatable(class, { __call = function(...) return _class(...) end })

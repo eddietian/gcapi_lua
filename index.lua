@@ -1,14 +1,17 @@
-require "configinc"
-Fun = require "funinc"
-Route = require "routeinc"
+require("gcapi_lua.config.configinc")
+Fun = require("funinc")
+Route = require("routeinc")
+Response = require("core.response")
 
-local init = require "init"
+--Response:init()
+
+
+local init = require("init")
 local var = init.run()
 --for k, v in pairs(var) do
 --      ngx.say(k,v)
 --end
-ngx.say('gb5')
-ngx.log(ngx.ERR, "err err err")
+--ngx.log(ngx.ERR, "err err err")
 --
 --ngx.say(Route.conf[2]["reg"])
 --ngx.say(ngx.var.request_uri)
