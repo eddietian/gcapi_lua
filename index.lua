@@ -1,24 +1,11 @@
 require("gcapi_lua.config.configinc")
-Fun = require("funinc")
-Route = require("routeinc")
-Response = require("core.response")
-
---Response:init()
+Fun = require("funinc") --全局方法
+Route = require("routeinc") --路由
+Response = require("core.response") --存储输出内容
 
 
-local init = require("init")
-local var = init.run()
---for k, v in pairs(var) do
---      ngx.say(k,v)
---end
---ngx.log(ngx.ERR, "err err err")
---
---ngx.say(Route.conf[2]["reg"])
---ngx.say(ngx.var.request_uri)
-
-
-
---Fun.getParams()
+local init = require("gcapi_lua.core.init")
+init.run() --入口
 
 
 --local  args = Fun.getParams()

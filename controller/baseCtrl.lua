@@ -2,7 +2,7 @@ local BaseCtrl  = {}
 
 function BaseCtrl:new(o)
     o = o or {}  
-    setmetatable(o,{__index=self})
+    setmetatable(o,{__index=self})--将自己加在__index里
     return o 
 end
 
