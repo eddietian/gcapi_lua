@@ -26,3 +26,13 @@ package.path = table.concat(resource,";");
 DBConfig = {
 	DB_stats = {"127.0.0.1","27017","test","",""}
 }
+
+--redis配置
+RedisConfig = {
+	default = {"127.0.0.1","6379"}
+}
+
+--memcache配置
+MemConfig = {
+	default = {"127.0.0.1","11211"}
+}
