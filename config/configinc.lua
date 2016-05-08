@@ -1,3 +1,4 @@
+--资源地址设置
 local resource = {
 	"/Users/eddietian/workspace/gcapi_lua/?.lua",
 	"/Users/eddietian/workspace/gcapi_lua/config/?.lua",
@@ -20,3 +21,8 @@ package.path = table.concat(resource,";");
 --      "/home/www/gcapi_lua/core/util/?.lua",
 --      "/home/www/gcapi_lua/lib/?.lua",
 --      "/home/www/gcapi_lua/modules/?.lua",
+
+--DB配置
+DBConfig = {
+	DB_stats = {"127.0.0.1","27017","test","",""}
+}

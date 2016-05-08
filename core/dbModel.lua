@@ -10,7 +10,7 @@ local mongoClient_Meta = {
     __index = function(self, key)
         return rawget(mongoClient, table.concat(_dbconfig,"")) or self:buildConnection(key)
     end,
-    __tostring = function (self)
+    --[[__tostring = function (self)
         local port_string
         if self.port then
             port_string = ":" .. tostring(self.port)
@@ -19,15 +19,13 @@ local mongoClient_Meta = {
         end
 
         return "[mongo client : " .. self.host .. port_string .."]"
-    end,
+    end,--]]
 }
 
 --创建链接
 function mongoClient:buildConnection(tbname)
 
-    local host = _dbconfig[1]
-    local port = _dbconfig[2]
-    local dbname = _dbconfig[3]
+    local host,port,dbname = _dbconfig[1],_dbconfig[2],_dbconfig[3]
 
     local conn = mongol:new()
     local ok,err = conn:connect(host,port)
@@ -51,6 +49,7 @@ end
 
 function DBModel:Instance(dbconfig) 
     _dbconfig = dbconfig
+    --mongoClient.host = dbconfig.host
     setmetatable(mongoClient,mongoClient_Meta)
     return mongoClient
 end
