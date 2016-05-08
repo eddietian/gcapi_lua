@@ -32,7 +32,7 @@ function mongoClient:buildConnection(tbname)
 
     if not ok then
        ngx.say("connect failed:"..err)
-       return false
+       return
     end
 
     local db = conn:new_db_handle(dbname)

@@ -1,57 +1,41 @@
 local RedisCache = {}
 local redis = require("resty.redis")
-local conn = {}
---db配置 host,port,dbname
-local _dbconfig = {}
---定义连mongo连接
-local mongoClient = {}
---定义单例连接
-local mongoClient_Meta = {
-    __index = function(self, key)
-        return rawget(mongoClient, table.concat(_dbconfig,"")) or self:buildConnection(key)
-    end,
-    --[[__tostring = function (self)
-        local port_string
-        if self.port then
-            port_string = ":" .. tostring(self.port)
-        else
-            port_string = ""
-        end
+--定义redis连接
+local redisClient = {}
 
-        return "[mongo client : " .. self.host .. port_string .."]"
-    end,--]]
+--redis配置 host,port
+local _rdconfig = {}
+
+--定义单例连接
+local redisClient_Meta = {
+    __index = function(self, key)
+        return rawget(redisClient, table.concat(_rdconfig,"")) or self:buildConnection()
+    end,
 }
 
 --创建链接
-function mongoClient:buildConnection(tbname)
+function redisClient:buildConnection()
 
-    local host,port,dbname = _dbconfig[1],_dbconfig[2],_dbconfig[3]
-
-    local conn = mongol:new()
-    local ok,err = conn:connect(host,port)
+    local rd = redis:new()
+    local ok,err = rd:connect(self.host,self.port)
 
     if not ok then
-       ngx.say("connect failed:"..err)
-       return false
+       ngx.say("redis connect failed:"..err)
+       return
     end
 
-    local db = conn:new_db_handle(dbname)
-
-    local collections = db:get_col(tbname)
-
     --连接存储到table
-    local tablekey = table.concat(_dbconfig,"")
-    self[tablekey] = collections
+    local tablekey = table.concat(_rdconfig,"")
+    self[tablekey] = rd
 
-    return collections
+    return rd
 end
 
 
-function DBModel:Instance(dbconfig) 
-    _dbconfig = dbconfig
-    --mongoClient.host = dbconfig.host
-    setmetatable(mongoClient,mongoClient_Meta)
-    return mongoClient
+function RedisCache:Instance(rdconfig) 
+    _rdconfig = rdconfig
+    setmetatable(redisClient,redisClient_Meta)
+    return redislient
 end
 
-return DBModel
+return RedisCache
