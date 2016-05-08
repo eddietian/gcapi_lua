@@ -8,7 +8,7 @@ function run()
         local args = {}
         args = string.gmatch(uri,v["reg"]) --正则匹配路由
         for g in args do
-           local control =  require (v["controller"].."Ctrl") --加载ctrl
+           local control =  require(v["controller"].."Ctrl") --加载ctrl
            local method = control[v['method']] --定位method
            local call_ok,err_info = pcall(method)  --调用方法
            break

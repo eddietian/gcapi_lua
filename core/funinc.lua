@@ -2,8 +2,7 @@ module (..., package.seeall)
 
 function getParams()
    local args = ngx.req.get_uri_args()
-   
-    return args
+   return args
 end
 
 function getUri()
