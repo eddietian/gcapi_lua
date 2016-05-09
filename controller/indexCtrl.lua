@@ -36,4 +36,13 @@ function indexCtrl:redis()
 
 end
 
+function indexCtrl:redis1()
+	
+	local redisCache = require("lib.redisCache")
+	local red = redisCache:Instance(RedisConfig.default)
+	local ok,err = red:set("tc","33333")
+	ngx.say(red:get("tc"))
+
+end
+
 return indexCtrl
