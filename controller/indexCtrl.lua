@@ -44,8 +44,8 @@ function indexCtrl:redis1()
 end
 
 function indexCtrl:template()
-	ngx.say(TemplateConfig['root'])
-	ngx.say(ngx.var.template_root)
+	--ngx.say(TemplateConfig['root'])
+	--ngx.say(ngx.var.template_root)
 	local template = require "template"
 	local view = template.new "view.html"
 	--view.message = "Hello,World!"
@@ -53,6 +53,7 @@ function indexCtrl:template()
 	--template.render("view.html",{message = "Hello,World!"})
 	template.render("view.html",{message = "Hello,World!"})
 	--ngx.say(TemplateConfig.root)
+	--ngx.say(ngx.var.template_root)
 end
 
 return indexCtrl

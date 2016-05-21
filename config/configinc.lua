@@ -40,5 +40,5 @@ MemConfig = {
 --模板文件配置
 TemplateConfig = {
 	dir = "/templates",
-	root = "/Users/eddietian/workspace/gcapi_lua"
+	root = "/Users/eddietian/workspace/gcapi_lua/templates"
 }
