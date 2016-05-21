@@ -31,18 +31,28 @@ function indexCtrl:redis()
 		ngx.say("failed to redis:",err)
 		return
 	end
-
+ngx.say("bb")
 	ngx.say(red:get(cachekey))
 
 end
 
 function indexCtrl:redis1()
-	
 	local redisCache = require("lib.redisCache")
 	local red = redisCache:Instance(RedisConfig.default)
 	local ok,err = red:set("tc","33333")
 	ngx.say(red:get("tc"))
+end
 
+function indexCtrl:template()
+	ngx.say(TemplateConfig['root'])
+	ngx.say(ngx.var.template_root)
+	local template = require "template"
+	local view = template.new "view.html"
+	--view.message = "Hello,World!"
+	--view:render()
+	--template.render("view.html",{message = "Hello,World!"})
+	template.render("view.html",{message = "Hello,World!"})
+	--ngx.say(TemplateConfig.root)
 end
 
 return indexCtrl

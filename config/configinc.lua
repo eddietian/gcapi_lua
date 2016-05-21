@@ -36,3 +36,9 @@ RedisConfig = {
 MemConfig = {
 	default = {"127.0.0.1","11211"}
 }
+
+--模板文件配置
+TemplateConfig = {
+	dir = "/templates",
+	root = "/Users/eddietian/workspace/gcapi_lua"
+}

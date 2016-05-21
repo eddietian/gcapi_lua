@@ -4,7 +4,9 @@ Route.conf = {
     {reg = "/test1%.html%?(name)=(%d+)&(p)=(%d+)",controller = "index",method = "test1"},
     {reg = "/stats/userBehavior.",controller = "stats.userBehavior",method = "index"},
     {reg = "/test/redis.html",controller = "index",method = "redis1"},
-    --{reg = "/test/redis",controller = "index",method = "redis"},
+    {reg = "/test/redis",controller = "index",method = "redis"},
+    {reg = "/test/template",controller = "index",method = "template"}
+
     
 }
 return Route
